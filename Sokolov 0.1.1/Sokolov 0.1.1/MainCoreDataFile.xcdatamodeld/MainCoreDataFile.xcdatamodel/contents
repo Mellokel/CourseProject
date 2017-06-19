@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="Comment" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="head" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idComment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="likeCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="whoseComments" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Record" inverseName="comments" inverseEntity="Record" syncable="YES"/>
+    </entity>
+    <entity name="Page" representedClassName=".Page" syncable="YES">
+        <attribute name="idPage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="record_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="subscriber_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Record" inverseName="whoseRecords" inverseEntity="Record" syncable="YES"/>
+    </entity>
+    <entity name="Record" representedClassName=".Record" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comment_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="head" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idRecord" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="like_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="photo_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="repost_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="whoseComments" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="whoseRecords" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Page" inverseName="records" inverseEntity="Page" syncable="YES"/>
+    </entity>
+    <entity name="SomeData" representedClassName=".SomeData" syncable="YES">
+        <attribute name="access" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Page" positionX="-513" positionY="-0" width="128" height="118"/>
+        <element name="Record" positionX="-326" positionY="0" width="128" height="208"/>
+        <element name="SomeData" positionX="-549" positionY="342" width="128" height="90"/>
+        <element name="Comment" positionX="-128" positionY="-0" width="128" height="148"/>
+    </elements>
+</model>

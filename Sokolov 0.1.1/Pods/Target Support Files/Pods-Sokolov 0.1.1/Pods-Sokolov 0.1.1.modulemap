@@ -1,0 +1,6 @@
+framework module Pods_Sokolov_0_1_1 {
+  umbrella header "Pods-Sokolov 0.1.1-umbrella.h"
+
+  export *
+  module * { export * }
+}
